@@ -1,92 +1,174 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mainLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="ru.cotheq.spritzreader.Main">
 
-    <RelativeLayout
-        android:id="@+id/mainLayout"
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="0dp">
+    <ScrollView
+        android:id="@+id/upperScroll"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_gravity="bottom"
+        android:layout_marginTop="0dp"
+        android:enabled="false"
+        android:foregroundGravity="bottom"
+        android:scrollbars="none">
 
-        <RelativeLayout
-            android:id="@+id/spritzLayout"
-            android:layout_width="fill_parent"
-            android:layout_height="55dp"
-            android:layout_marginTop="24dp"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true">
-
-            <TextView
-                android:id="@+id/rightPart"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
-                android:layout_marginStart="115dp"
-                android:layout_weight="1"
-                android:text="tview"
-                android:textColor="@android:color/black"
-                android:textSize="30sp" />
-
-            <TextView
-                android:id="@+id/redLetter"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
-                android:layout_marginStart="100dp"
-                android:layout_weight="1"
-                android:text="x"
-                android:textColor="@android:color/holo_red_dark"
-                android:textSize="30sp" />
-
-            <TextView
-                android:id="@+id/leftPart"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true"
-                android:layout_centerVertical="true"
-                android:layout_marginStart="75dp"
-                android:layout_weight="1"
-                android:text="te"
-                android:textColor="@android:color/black"
-                android:textSize="30sp" />
-
-        </RelativeLayout>
-
-        <Button
-            android:id="@+id/textPlayButton"
+        <TextView
+            android:id="@+id/upperText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_marginBottom="15dp"
-            android:layout_weight="1"
-            android:text=" Воспроизвести текст"
-            tools:layout_editor_absoluteX="148dp"
-            tools:layout_editor_absoluteY="167dp" />
+            android:layout_gravity="bottom"
+            android:layout_marginTop="0sp"
+            android:layout_toEndOf="@+id/rightPart"
+            android:layout_toRightOf="@+id/rightPart"
+            android:enabled="false"
+            android:gravity="left"
+            android:scrollIndicators="bottom"
+            android:scrollbars="none"
+            android:text=""
+            android:textColor="@android:color/black"
+            android:textSize="18sp" />
+    </ScrollView>
 
-        <EditText
-            android:id="@+id/inputText"
+    <RelativeLayout
+        android:id="@+id/spritzLayout"
+        android:layout_width="fill_parent"
+        android:layout_height="70dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="150dp">
+
+        <TextView
+            android:id="@+id/remainderTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/leftPart"
+            android:layout_alignBottom="@+id/leftPart"
+            android:layout_gravity="center_vertical"
+            android:layout_marginTop="23sp"
+            android:layout_toEndOf="@+id/rightPart"
+            android:layout_toRightOf="@+id/rightPart"
+            android:ellipsize="none"
+            android:maxLines="1"
+            android:singleLine="true"
+            android:text="remainder"
+            android:textAlignment="center"
+            android:textColor="#ffdddddd"
+            android:textSize="30sp" />
+
+        <TextView
+            android:id="@+id/rightPart"
             android:layout_width="wrap_content"
-            android:layout_height="200dp"
-            android:layout_above="@+id/textPlayButton"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentStart="true"
-            android:layout_below="@+id/spritzLayout"
-            android:ems="10"
-            android:inputType="textMultiLine"
-            android:text="Быстрое последовательное визуальное предъявление — способ показа текстовой информации на дисплее (англ. Rapid Serial Visual Presentation, RSVP). RSVP – сегодня самая распространенная техника скорочтения. Однако, RSVP была изначально разработана для проведения психологического эксперимента, имевшего целью определить реакцию человека на содержание читаемого текста.  В то время, когда была изобретена техника RSVP, цифрового контента в мире было не так уж много, в любом случае, большинство людей не имело к нему доступа. Еще даже не существовало интернета. В традиционной версии RSVP слова выравниваются либо по левому краю, либо по центру." />
+            android:layout_height="wrap_content"
+            android:text="tview"
+            android:textAlignment="center"
+            android:textColor="@android:color/black"
+            android:textSize="30sp" />
 
+        <TextView
+            android:id="@+id/redLetter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="x"
+            android:textColor="@android:color/holo_red_dark"
+            android:textSize="30sp" />
+
+        <TextView
+            android:id="@+id/leftPart"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="te"
+            android:textColor="@android:color/black"
+            android:textSize="30sp" />
 
     </RelativeLayout>
 
-</android.support.constraint.ConstraintLayout>
+    <ScrollView
+        android:id="@+id/lowerScroll"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/spritzLayout"
+        android:layout_marginBottom="40dp">
+        <TextView
+            android:id="@+id/lowerText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:enabled="false"
+            android:fadeScrollbars="false"
+            android:focusable="false"
+            android:focusableInTouchMode="false"
+            android:scrollbars="vertical"
+            android:text=""
+            android:textAlignment="viewEnd"
+            android:textColor="@android:color/black"
+            android:textSize="18sp" />
+
+    </ScrollView>
+
+    <LinearLayout
+        android:id="@+id/buttonsLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginBottom="0dp"
+        android:orientation="horizontal">
+
+        <ImageButton
+            android:id="@+id/loadText"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_weight="1"
+            app:srcCompat="@android:drawable/ic_menu_upload" />
+
+        <ImageButton
+            android:id="@+id/prevParagraph"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_weight="1"
+            app:srcCompat="@android:drawable/ic_media_rew" />
+
+        <ImageButton
+            android:id="@+id/prevWord"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_weight="1"
+            app:srcCompat="@android:drawable/ic_media_previous" />
+
+        <ImageButton
+            android:id="@+id/nextWord"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_weight="1"
+            app:srcCompat="@android:drawable/ic_media_next" />
+
+        <ImageButton
+            android:id="@+id/nextParagraph"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_weight="1"
+            app:srcCompat="@android:drawable/ic_media_ff" />
+
+        <ImageButton
+            android:id="@+id/settingsButton"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_weight="1"
+            app:srcCompat="@android:drawable/ic_menu_manage" />
+
+    </LinearLayout>
+
+
+</RelativeLayout>
